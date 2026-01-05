@@ -1,9 +1,6 @@
 #!/bin/sh
 nix-shell -p disko --run "disko --mode destroy,format,mount /nixos/nixos/disk-config.nix"
-mkdir -p /mnt/boot
-mount /dev/sda2 /mnt/boot
-mount /dev/sda1 /mnt
 mkdir -p /mnt/etc/nixos
 nixos-generate-config --root /mnt
-cp ./configuration.nix /mnt/etc/nixos
+cp /nixos/nixos/configuration.nix /mnt/etc/nixos/configuration.nix
 nixos-install
