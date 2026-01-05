@@ -1,0 +1,1 @@
+doas nixos-rebuild switch -I nixos-config=/home/krecikowa/nixos/configuration.nix
