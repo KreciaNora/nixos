@@ -1,6 +1,7 @@
 #!/bin/sh
 nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode destroy,format,mount /home/nixos/nixos/disk-config.nix
 mkdir -p /mnt/etc/nixos
-cp /home/nixos/nixos/configuration.nix /mnt/etc/nixos/configuration.nix
+rm /home/nixos/nixos/hardware-configuration.nix
+cp /home/nixos/nixos/* /mnt/etc/nixos/
 nixos-generate-config --root /mnt
 nixos-install
