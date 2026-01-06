@@ -4,6 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/pipewire.nix
     ];
   environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
   security.polkit.enable = true;
@@ -44,6 +45,17 @@
     layout = "pl";
     variant = "";
   };
+# systemd.user.services.kanshi = {
+#   description = "kanshi deamon";
+#   environment = {
+#     WAYLAND_DISPLAY="wayland-1";
+#     DISPLAY = ":0";
+#   };
+#   serviceConfig = {
+#     Type = "simple";
+#     EcecStart = ''${pkgs.kanshi}/bin/kanshi - c kanshi_config_file'';
+#   };
+# };
   security.sudo.enable = false;
   security.doas = {
     enable = true;
@@ -73,6 +85,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   #programs.hyprland.enable = true;
+  programs.sway.enable = true;
   environment.systemPackages = with pkgs; [
     #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
@@ -80,6 +93,7 @@
     kitty
     librewolf
     wofi
+    pavucontrol
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Some programs need SUID wrappers, can be configured further or are
