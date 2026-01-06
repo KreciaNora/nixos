@@ -2,8 +2,12 @@
 {
   programs.nushell = {
     enable = true;
-    settings = {
-      show_banner = false;
-    };
+    extraConfig = ''
+      $env.config.show_banner = false
+    '';
+  };
+  programs = {
+    carapace.enable = true;
+    carapace.enableNushellIntegration = true;
   };
 }

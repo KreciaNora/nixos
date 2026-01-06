@@ -2,7 +2,7 @@
 {
   imports = [
     ./vim.nix
-   # ./nushell.nix
+    ./nushell.nix
     ./git.nix
   ];
 }
