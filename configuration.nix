@@ -5,7 +5,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-
+  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+  security.polkit.enable = true;
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
