@@ -6,5 +6,6 @@
     ./git.nix
     ./sway.nix
     ./waybar.nix
+    ./emacs.nix
   ];
 }
