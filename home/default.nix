@@ -5,5 +5,6 @@
     ./nushell.nix
     ./git.nix
     ./sway.nix
+    ./waybar.nix
   ];
 }

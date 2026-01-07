@@ -34,9 +34,12 @@
           res = "1920x1080@74.973Hz";
         };
       };
+      window.border = 3;
+      window.titlebar = false;
       startup = [
         {command = "kitty";}
       ];
+      bars = [];
     };
   };
 }
