@@ -4,7 +4,7 @@
     enable = true;
     wrapperFeatures.gtk = true;
     config = rec {
-      modifier = "Mod1";
+      modifier = "Mod4";
       gaps = {
         inner = 10;
         outer = 10;
@@ -22,6 +22,7 @@
         "${config.wayland.windowManager.sway.config.modifier}+d" = "exec ${pkgs.fuzzel}/bin/fuzzel";
         "${config.wayland.windowManager.sway.config.modifier}+q" = "kill";
         "${config.wayland.windowManager.sway.config.modifier}+Shift+b" = "exec pkill waybar && waybar";
+        "${modifier}+Shift+s" = "exec 'grim -g \"$(slurp)\" - | wl-copy'";
       };
       output = {
         "eDP-1" = {
