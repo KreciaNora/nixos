@@ -21,7 +21,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
+  };
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
 
