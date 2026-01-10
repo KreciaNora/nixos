@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./modules/pipewire.nix
       ./modules/nvidia.nix
+      ./modules/packages.nix
     ];
   environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
   security.polkit.enable = true;
@@ -85,25 +86,12 @@
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  #programs.hyprland.enable = true;
-  programs.sway.enable = true;
-  environment.systemPackages = with pkgs; [
-    #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    emacs
-    wget
-    git
-    kitty
-    librewolf
-    wofi
-    pavucontrol
-    grim
-    slurp
-    wl-clipboard
-    shotman
-  ];
+
+
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
