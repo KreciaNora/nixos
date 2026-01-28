@@ -17,6 +17,7 @@
             home.homeDirectory = "/home/krecikowa";
             imports = [ 
               ./home.nix
+              
             ];
           };
         }

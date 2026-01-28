@@ -7,5 +7,6 @@
     ./sway.nix
     ./waybar.nix
     ./emacs.nix
+    ./kitty.nix
   ];
 }

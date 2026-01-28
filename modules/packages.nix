@@ -1,5 +1,10 @@
 { pkgs, ... }:
 {
+    programs.steam = {
+      enable = true;  
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
     nixpkgs.config.allowUnfree = true;
     programs.sway.enable = true;
     environment.systemPackages = with pkgs; [
@@ -14,6 +19,17 @@
     grim
     slurp
     wl-clipboard
-    shotman
+    btop
+    vlc
+    vscodium
+    wine
+    jetbrains-toolbox
+    nodejs
+    qbittorrent
+    legcord
+    swaybg
+    google-chrome
+    lutris
+    qdirstat
   ]; 
 }

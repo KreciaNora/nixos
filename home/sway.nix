@@ -5,23 +5,34 @@
     wrapperFeatures.gtk = true;
     config = rec {
       modifier = "Mod4";
-      gaps = {
-        inner = 10;
-        outer = 10;
-      };
+/*      gaps = {
+        inner = 0;
+        outer = 0;
+      };*/
       terminal = "kitty";
       input = {
         "type:keyboard" = {
           xkb_layout = "pl";
-	  xkb_variant = "colemak";
-	  xkb_options = "ctrl:nocaps";
+	        xkb_variant = "colemak";
+	        xkb_options = "ctrl:nocaps";
+        };
+        "type:touchpad" = {
+          tap = "enabled";
+          natural_scroll = "enabled";
+          dwt = "enabled";
+          middle_emulation = "enabled";
+        };
+        "type:pointer" = {
+          accel_profile = "flat";
+          pointer_accel = "0";
         };
       };
       keybindings = lib.mkOptionDefault {
         "${config.wayland.windowManager.sway.config.modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
         "${config.wayland.windowManager.sway.config.modifier}+d" = "exec ${pkgs.fuzzel}/bin/fuzzel";
         "${config.wayland.windowManager.sway.config.modifier}+q" = "kill";
-        "${config.wayland.windowManager.sway.config.modifier}+Shift+b" = "exec pkill waybar && waybar";
+        "${config.wayland.windowManager.sway.config.modifier}+Shift+b" = "exec waybar";
+        "${config.wayland.windowManager.sway.config.modifier}+Shift+k" = "exec pkill waybar";
         "${modifier}+Shift+s" = "exec 'grim -g \"$(slurp)\" - | wl-copy'";
       };
       output = {
@@ -40,8 +51,28 @@
       };
       window.border = 3;
       window.titlebar = false;
+
+      colors = {
+        focused = {
+          background = "#BBBEFE";
+          border = "#BBBEFE";
+          childBorder = "#BBBEFE";
+          indicator = "#BBBEFE";
+          text = "#ffffff";
+        };
+        focusedInactive = {
+          background = "#444444";
+          border = "#444444";
+          childBorder = "#444444";
+          indicator = "#444444";
+          text = "#ffffff";
+        };
+        
+      };
+      
       startup = [
         {command = "waybar";}
+        {command = "swaybg -i /home/krecikowa/Downloads/b.png";}
 
       ];
       bars = [];
