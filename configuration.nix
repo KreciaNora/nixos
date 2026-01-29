@@ -14,14 +14,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   fonts.packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
-   
+  services.flatpak.enable = true;
   networking.hostName = "KEMS"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
+  virtualisation.podman.enable = true;
+  environment.systemPackages = [ pkgs.distrobox ];
   # Enable networking
   networking.networkmanager.enable = true;
   zramSwap = {
